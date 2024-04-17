@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Papyrus, Helvetica, sans-serif;
     text-align: center;
     background: url("./landscape-bg.jpeg");
     background-size: cover;
@@ -39,3 +39,23 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+#lobbyWindow {
+    padding: 350px;
+    border-radius: 5px;
+    text-align: center; /* Align content center within the box */
+}
+
+
+.thick {
+    font-weight: bold;
+  }
+
+.large-button {
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    font-family: papyrus;
+}
+
+  

@@ -1,5 +1,5 @@
-let currMoleTile;
-let currPlantTile;
+let currFairyTile;
+let currBeeTile;
 let score = 0;
 let gameOver = false;
 let playerName = "";
@@ -55,8 +55,8 @@ function setGame() {
         tile.addEventListener("click", selectTile);
         document.getElementById("board").appendChild(tile);
     }
-    setInterval(setMole, 1000); // 1000 miliseconds = 1 second, every 1 second call setMole
-    setInterval(setPlant, 2000); // 2000 miliseconds = 2 seconds, every 2 second call setPlant
+    setInterval(setFairy, 1000); // 1000 miliseconds = 1 second, every 1 second call setFairy
+    setInterval(setBee, 2000); // 2000 miliseconds = 2 seconds, every 2 second call setBee
 }
 
 function getRandomTile() {
@@ -65,51 +65,51 @@ function getRandomTile() {
     return num.toString();
 }
 
-function setMole() {
+function setFairy() {
     if (gameOver) {
         return;
     }
-    if (currMoleTile) {
-        currMoleTile.innerHTML = "";
+    if (currFairyTile) {
+        currFairyTile.innerHTML = "";
     }
-    let mole = document.createElement("img");
-    mole.src = "./fairy.png";
+    let fairy = document.createElement("img");
+    fairy.src = "./fairy.png";
 
     let num = getRandomTile();
-    if (currPlantTile && currPlantTile.id == num) {
+    if (currBeeTile && currBeeTile.id == num) {
         return;
     }
-    currMoleTile = document.getElementById(num);
-    currMoleTile.appendChild(mole);
+    currFairyTile = document.getElementById(num);
+    currFairyTile.appendChild(fairy);
 }
 
-function setPlant() {
+function setBee() {
     if (gameOver) {
         return;
     }
-    if (currPlantTile) {
-        currPlantTile.innerHTML = "";
+    if (currBeeTile) {
+        currBeeTile.innerHTML = "";
     }
-    let plant = document.createElement("img");
-    plant.src = "./bee.png";
+    let bee = document.createElement("img");
+    bee.src = "./bee.png";
 
     let num = getRandomTile();
-    if (currMoleTile && currMoleTile.id == num) {
+    if (currFairyTile && currFairyTile.id == num) {
         return;
     }
-    currPlantTile = document.getElementById(num);
-    currPlantTile.appendChild(plant);
+    currBeeTile = document.getElementById(num);
+    currBeeTile.appendChild(bee);
 }
 
 function selectTile() {
     if (gameOver) {
         return;
     }
-    if (this == currMoleTile) {
+    if (this == currFairyTile) {
         score += 10;
         document.getElementById("score").innerText = score.toString(); //update score html
     }
-    else if (this == currPlantTile) {
+    else if (this == currBeeTile) {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
     }
