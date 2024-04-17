@@ -41,7 +41,7 @@ body {
 }
 
 #lobbyWindow {
-    padding: 350px;
+    padding: 150px;
     border-radius: 5px;
     text-align: center; /* Align content center within the box */
 }
@@ -59,7 +59,8 @@ body {
 }
 
 #score {
-    font-size: 40px;
+    font-size: 30ßpx;
 }
+
 
   
