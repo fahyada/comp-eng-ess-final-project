@@ -9,14 +9,19 @@
 </head>
 <body>
     <h1>Catch the Fairy!</h1>
-    <div id="playerNameContainer">
+    <div id="lobbyWindow">
+        <h1>Lobby Window</h1>
         <label for="playerName">Enter Your Name:</label>
         <input type="text" id="playerName" name="playerName">
-        <button id="startGameButton" onclick="startGame()">Start Game</button>
+        <button onclick="startGame()">Start Game</button>
     </div>
-    <h2 id="score">0</h2>
-    <!-- 3x3 -->
-    <div id="board">
+
+    <div id="gameWindow" style="display:none;">
+        <h1>Game Window</h1>
+        <h2 id="playerNameDisplay"></h2>
+        <h2 id="score">0</h2>
+        <!-- 3x3 -->
+        <div id="board">
     </div>
 </body>
 </html>

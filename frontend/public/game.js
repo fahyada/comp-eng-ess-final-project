@@ -18,14 +18,18 @@ function startGame() {
     }
 
     // Hide the playerNameContainer
-    document.getElementById("playerNameContainer").style.display = "none";
+    //document.getElementById("playerNameContainer").style.display = "none";
 
     // Display welcome message
-    displayWelcomeMessage();
+    //displayWelcomeMessage();
+
+    document.getElementById("lobbyWindow").style.display = "none";
+    document.getElementById("gameWindow").style.display = "block";
+    document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
 
     // Start the game
     setGame();
-    document.getElementById("startGameButton").disabled = true;
+    //document.getElementById("startGameButton").disabled = true;
 }
 
 //function getPlayerName() {
