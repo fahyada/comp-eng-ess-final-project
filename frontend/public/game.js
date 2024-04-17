@@ -2,9 +2,24 @@ let currMoleTile;
 let currPlantTile;
 let score = 0;
 let gameOver = false;
+let playerName = "";
+
+
 
 window.onload = function() {
-    setGame();
+    getPlayerName(); // Call the function to prompt player for their name
+}
+
+function getPlayerName() {
+    playerName = prompt("Please enter your name:"); // Prompt the player to enter their name
+
+    if (playerName === null || playerName.trim() === "") {
+        // If the player cancels or enters an empty name, ask again
+        getPlayerName();
+    } else {
+        // If the player provides a name, start the game
+        setGame();
+    }
 }
 
 function setGame() {
