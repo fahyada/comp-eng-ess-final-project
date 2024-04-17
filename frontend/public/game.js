@@ -42,8 +42,10 @@ function startGame() {
 function displayWelcomeMessage() {
     let welcomeMessage = document.createElement("p");
     welcomeMessage.textContent = "Welcome, " + playerName + "!";
+    document.getElementById("playerNameContainer").style.display = "block"; // Make sure container is visible
     document.getElementById("playerNameContainer").appendChild(welcomeMessage);
 }
+
 
 function setGame() {
     //set up the grid in html
