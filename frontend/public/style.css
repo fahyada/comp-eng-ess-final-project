@@ -49,13 +49,17 @@ body {
 
 .thick {
     font-weight: bold;
-  }
+}
 
 .large-button {
     width: 200px;
     height: 60px;
     font-size: 30px;
     font-family: papyrus;
+}
+
+#score {
+    font-size: 40px;
 }
 
   
