@@ -25,6 +25,7 @@ function startGame() {
 
     // Start the game
     setGame();
+    document.getElementById("startGameButton").disabled = true;
 }
 
 //function getPlayerName() {
