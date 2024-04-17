@@ -18,8 +18,14 @@ function getPlayerName() {
         getPlayerName();
     } else {
         // If the player provides a name, start the game
+        displayWelcomeMessage();
         setGame();
     }
+}
+function displayWelcomeMessage() {
+    let welcomeMessage = document.createElement("p");
+    welcomeMessage.textContent = "Welcome, " + playerName + "!";
+    document.getElementById("playerNameContainer").appendChild(welcomeMessage);
 }
 
 function setGame() {
