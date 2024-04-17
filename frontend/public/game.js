@@ -6,22 +6,39 @@ let playerName = "";
 
 
 
-window.onload = function() {
-    getPlayerName(); // Call the function to prompt player for their name
-}
+//window.onload = function() {
+    //getPlayerName(); // Call the function to prompt player for their name
+//}
+function startGame() {
+    playerName = document.getElementById("playerName").value.trim();
 
-function getPlayerName() {
-    playerName = prompt("Please enter your name:"); // Prompt the player to enter their name
-
-    if (playerName === null || playerName.trim() === "") {
-        // If the player cancels or enters an empty name, ask again
-        getPlayerName();
-    } else {
-        // If the player provides a name, start the game
-        displayWelcomeMessage();
-        setGame();
+    if (playerName === "") {
+        alert("Please enter your name to start the game.");
+        return;
     }
+
+    // Hide the playerNameContainer
+    document.getElementById("playerNameContainer").style.display = "none";
+
+    // Display welcome message
+    displayWelcomeMessage();
+
+    // Start the game
+    setGame();
 }
+
+//function getPlayerName() {
+   // playerName = prompt("Please enter your name:"); // Prompt the player to enter their name
+
+    //if (playerName === null || playerName.trim() === "") {
+        // If the player cancels or enters an empty name, ask again
+       // getPlayerName();
+    //} else {
+        // If the player provides a name, start the game
+       // displayWelcomeMessage();
+        //setGame();
+    //}
+//}
 function displayWelcomeMessage() {
     let welcomeMessage = document.createElement("p");
     welcomeMessage.textContent = "Welcome, " + playerName + "!";
