@@ -20,8 +20,6 @@ function startGame() {
     // Hide the playerNameContainer
     //document.getElementById("playerNameContainer").style.display = "none";
 
-    // Display welcome message
-    //displayWelcomeMessage();
 
     document.getElementById("lobbyWindow").style.display = "none";
     document.getElementById("gameWindow").style.display = "block";
@@ -32,18 +30,6 @@ function startGame() {
     //document.getElementById("startGameButton").disabled = true;
 }
 
-//function getPlayerName() {
-   // playerName = prompt("Please enter your name:"); // Prompt the player to enter their name
-
-    //if (playerName === null || playerName.trim() === "") {
-        // If the player cancels or enters an empty name, ask again
-       // getPlayerName();
-    //} else {
-        // If the player provides a name, start the game
-       // displayWelcomeMessage();
-        //setGame();
-    //}
-//}
 function displayWelcomeMessage() {
     let welcomeMessage = document.createElement("p");
     welcomeMessage.textContent = "Welcome, " + playerName + "!";

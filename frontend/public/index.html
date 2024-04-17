@@ -10,14 +10,18 @@
 <body>
     <h1>Catch the Fairy!</h1>
     <div id="lobbyWindow">
-        <h1>Lobby Window</h1>
-        <label for="playerName">Enter Your Name:</label>
+        <label for="playerName">Enter Your ID:</label>
+        <input type="text" id="playerName" name="playerName">
+        <button onclick="startGame()">Start Game</button>
+        <br>
+        <h2>or Create ID</h2>
+        <br>
+        <label for="playerName">Enter New ID:</label>
         <input type="text" id="playerName" name="playerName">
         <button onclick="startGame()">Start Game</button>
     </div>
 
     <div id="gameWindow" style="display:none;">
-        <h1>Game Window</h1>
         <h2 id="playerNameDisplay"></h2>
         <h2 id="score">0</h2>
         <!-- 3x3 -->
