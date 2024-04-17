@@ -11,8 +11,10 @@ let playerName = "";
 //}
 function startGame() {
     playerName = document.getElementById("playerName").value.trim();
+    playerNewName = document.getElementById("playerNewName").value.trim();
 
-    if (playerName === "") {
+
+    if (playerName === "" && playerNewName === "") {
         alert("Please enter your name to start the game.");
         return;
     }
@@ -23,7 +25,13 @@ function startGame() {
 
     document.getElementById("lobbyWindow").style.display = "none";
     document.getElementById("gameWindow").style.display = "block";
-    document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
+    if (playerName === "") {
+        document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerNewName + "!";
+    }
+    if (playerNewName === "") {
+        document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
+    }
+    //document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
 
     // Start the game
     setGame();
