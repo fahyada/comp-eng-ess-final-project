@@ -1,9 +1,18 @@
 import User from "../models/userModel.js";
+import Counter from "../models/counterModel.js";
 
 export const createUser = async (req, res) => {
     // enter only Name, ID auto create, Score default = 0
     try {
-        const newUser = new User(req.body);
+        //Find counter and increment seq automatic
+        const counter = await Counter.findOneAndUpdate({}, {$inc: {seq: 1}}, { upsert: true ,new: true});
+
+        //Create new user
+        const newUser = new User({
+            id: counter.seq, 
+            name: req.body, //input only name
+            score: 0,
+        });
         await newUser.save();
 
         res.status(200).json({ message: "OK"});
