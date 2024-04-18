@@ -10,7 +10,7 @@ export const createUser = async (req, res) => {
         //Create new user
         const newUser = new User({
             id: counter.seq, 
-            name: req.body, //input only name
+            name: req.body.name, //input only name
             score: 0, 
         });
         await newUser.save();
