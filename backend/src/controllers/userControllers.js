@@ -26,12 +26,30 @@ export const getUser = async (req, res) => {
     res.status(200).json(user);
 };
 
-export const getRankUser = async (req, res) => {
+export const getTopRank = async (req, res) => {
     // rank user by score -> id
     try {
-        const rankedUser = await User.find().sort({ score: -1, id: 1})
-        res.status(200).json({ success: true, data: rankedData });
+        const rankedUser = await User.find().sort({ score: -1, id: 1}).limit(5);
+        res.status(200).json(rankedUser);
     } catch (err) {
-        res.status(500).json({ success: false, error: err.message });
+        res.status(500).send("Error to ranking");
+    }
+};
+
+export const getUserRank = async (req, res) => {
+    try {
+        const userId = req.parmas.id;
+        const rankedUser = await User.find().sort({ score: -1, id: 1});
+        const userIndex = rankedUser.findIndex(userId);
+
+        if (userIndex === -1) {
+            res.status(404).send("User not found");
+            return;
+        }
+
+        const userRank = userIndex + 1;
+        res.status(200).json(userRank);
+    } catch (err) {
+        res.status(500).send("Error to find the rank");
     }
 };
