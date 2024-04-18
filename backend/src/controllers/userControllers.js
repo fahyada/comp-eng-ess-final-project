@@ -11,7 +11,7 @@ export const createUser = async (req, res) => {
         const newUser = new User({
             id: counter.seq, 
             name: req.body, //input only name
-            score: 0,
+            score: 0, 
         });
         await newUser.save();
 
@@ -38,7 +38,7 @@ export const getUser = async (req, res) => {
 export const getTopRank = async (req, res) => {
     // rank user by score -> id
     try {
-        const rankedUser = await User.find().sort({ score: -1, id: 1}).limit(5);
+        const rankedUser = await User.find().sort({ score: -1}).limit(5);
         res.status(200).json(rankedUser);
     } catch (err) {
         res.status(500).send("Error to ranking");
@@ -48,7 +48,7 @@ export const getTopRank = async (req, res) => {
 export const getUserRank = async (req, res) => {
     try {
         const userId = req.parmas.id;
-        const rankedUser = await User.find().sort({ score: -1, id: 1});
+        const rankedUser = await User.find().sort({ score: -1});
         const userIndex = rankedUser.findIndex(userId);
 
         if (userIndex === -1) {
@@ -58,6 +58,25 @@ export const getUserRank = async (req, res) => {
 
         const userRank = userIndex + 1;
         res.status(200).json(userRank);
+    } catch (err) {
+        res.status(500).send("Error to find the rank");
+    }
+};
+
+export const getUserBestScore = async (req, res) => {
+    try {
+        const userCurScore = req.body.score;
+
+        const user = await User.findById(req.body.id);
+        const userOldScore = user.score;
+
+        if(userCurScore > userOldScore){
+            user.score = userCurScore;
+        }
+
+        await user.save();
+        res.status(200).json(user.score);
+
     } catch (err) {
         res.status(500).send("Error to find the rank");
     }
