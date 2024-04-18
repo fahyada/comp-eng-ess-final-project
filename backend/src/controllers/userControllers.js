@@ -26,7 +26,12 @@ export const getUser = async (req, res) => {
     res.status(200).json(user);
 };
 
-export const rankUser = async (req, res) => {
+export const getRankUser = async (req, res) => {
     // rank user by score -> id
-    
+    try {
+        const rankedUser = await User.find().sort({ score: -1, id: 1})
+        res.status(200).json({ success: true, data: rankedData });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
 };
