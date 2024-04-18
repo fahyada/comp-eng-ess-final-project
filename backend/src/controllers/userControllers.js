@@ -14,9 +14,9 @@ export const createUser = async (req, res) => {
             res.status(500).json({ error: "Internal server error." });
         }
     }
-  };
+};
 
-  export const getUser = async (req, res) => {
+export const getUser = async (req, res) => {
     // find from user ID for old user
     const userId = req.parmas.id;
     const user = await User.findById(userId);
@@ -24,4 +24,9 @@ export const createUser = async (req, res) => {
         return res.status(404).json({ error: "User not found" });
     }
     res.status(200).json(user);
-  };
+};
+
+export const rankUser = async (req, res) => {
+    // rank user by score -> id
+    
+};
