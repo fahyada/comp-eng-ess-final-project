@@ -4,45 +4,47 @@ let score = 0;
 let gameOver = false;
 let playerName = "";
 
+function generateId() {
+    let newPlayerName = document.getElementById("newPlayerName").value.trim();
+        if (newPlayerName === "") {
+            alert("Please enter your name to generate an ID.");
+            return;
+        }
+        
+    //let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
+    document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
+    document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
+    document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
 
+}
 
-//window.onload = function() {
-    //getPlayerName(); // Call the function to prompt player for their name
-//}
 function startGame() {
-    playerName = document.getElementById("playerName").value.trim();
-    playerNewName = document.getElementById("playerNewName").value.trim();
-
-
-    if (playerName === "" && playerNewName === "") {
+    // Logic to start the game (navigate to gameplay page)
+    playerId = document.getElementById("playerId").value.trim();
+    newPlayerName = document.getElementById("newPlayerName").value.trim();
+    if (playerId === "" && newPlayerName === "") {
         alert("Please enter your name to start the game.");
         return;
     }
-
-    // Hide the playerNameContainer
-    //document.getElementById("playerNameContainer").style.display = "none";
-
-
-    document.getElementById("lobbyWindow").style.display = "none";
-    document.getElementById("gameWindow").style.display = "block";
-    if (playerName === "") {
-        document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerNewName + "!";
-    }
-    if (playerNewName === "") {
-        document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
-    }
-    //document.getElementById("playerNameDisplay").textContent = "Welcome, " + playerName + "!";
-
-    // Start the game
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("registrationPage").style.display = "none";
+    document.getElementById("gameplayPage").style.display = "block";
     setGame();
-    //document.getElementById("startGameButton").disabled = true;
 }
 
-function displayWelcomeMessage() {
-    let welcomeMessage = document.createElement("p");
-    welcomeMessage.textContent = "Welcome, " + playerName + "!";
-    document.getElementById("playerNameContainer").style.display = "block"; // Make sure container is visible
-    document.getElementById("playerNameContainer").appendChild(welcomeMessage);
+function showRegistration() {
+    // Logic to show registration page
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("registrationPage").style.display = "block";
+    document.getElementById("gameplayPage").style.display = "none";
+    
+}
+
+function showLanding() {
+    // Logic to show landing page
+    document.getElementById("landingPage").style.display = "block";
+    document.getElementById("registrationPage").style.display = "none";
+    document.getElementById("gameplayPage").style.display = "none";
 }
 
 
