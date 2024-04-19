@@ -8,7 +8,8 @@ let playerName = "";
 function startGame() {
     // Logic to start the game (navigate to gameplay page)
     playerId = document.getElementById("playerId").value.trim();
-    if (playerId === "") {
+    newPlayerName = document.getElementById("newPlayerName").value.trim();
+    if (playerId === "" && newPlayerName === "") {
         alert("Please enter your name to start the game.");
         return;
     }
