@@ -8,25 +8,32 @@
     <script src="game.js"></script>
 </head>
 <body>
-    <div id="lobbyWindow">
-        <h1 style="font-size: 80px;">Catch the Fairy!</h1>
-        <label for="playerName" style="font-size: 30px;">Exist Player, Enter your ID:</label>
-        <input type="text" id="playerName" name="playerName" style="width: 200px; height: 30px; font-size: 25px;">
-        <br>
-        <h2 style="font-size: 30px;">or Create ID</h2>
-        <br>
-        <label for="playerNewName" style="font-size: 30px;">New Player, Enter your Name:</label>
-        <input type="text" id="playerNewName" name="playerNewName" style="width: 200px; height: 30px; font-size: 25px;">
-        <br>
-        <br>
-        <button onclick="startGame()" class="large-button">Start Game</button>
-
+    <div id="landingPage">
+        <h1 style="font-size: 80px; color:white">Catch the Fairy!</h1>
+        <div id="enterId">
+            <label for="playerId" style="font-size: 30px; color:white">Enter Your ID:</label>
+            <input type="text" id="playerId" name="playerId" style="width: 200px; height: 30px; font-size: 25px;">
+            <br>
+            <button onclick="startGame()" class="large-button">Start Game</button>
+            <button onclick="showRegistration()" class="large-button">Get ID</button>
+        </div>
     </div>
 
-    <div id="gameWindow" style="display:none;">
-        <h1 style="font-size: 40px;">Catch the Fairy!</h1>
-        <h2 id="playerNameDisplay"></h2>
-        <h2 id="score">0</h2>
+    <div id="registrationPage" style="display: none;">
+        <h1 style="font-size: 80px; color:white">Catch the Fairy!</h1>
+        <div id="registerNewId">
+            <label for="newPlayerName" style="font-size: 30px; color:white">Enter Your Name:</label>
+            <input type="text" id="newPlayerName" name="newPlayerName" style="width: 200px; height: 30px; font-size: 25px;">
+            <br>
+            <button onclick="startGame()" class="large-button">Start Game</button>
+            <button onclick="showLanding()" class="large-button">Go Back</button>
+        </div>
+    </div>
+
+    <div id="gameplayPage" style="display:none;">
+        <h1 style="font-size: 40px; color:white">Catch the Fairy!</h1>
+        <h2 id="playerNameDisplay" style="color: white;"></h2>
+        <h2 id="score" style="color: white;">0</h2>
         <!-- 3x3 -->
         <div id="board">
     </div>
