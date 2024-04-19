@@ -1,8 +1,11 @@
 body {
     font-family: Papyrus, Helvetica, sans-serif;
     text-align: center;
-    background: url("./landscape-bg.jpeg");
+    background: url("./landscape-bg.jpeg") no-repeat center center fixed;
     background-size: cover;
+    width: 100%;
+    height: 100vh;
+    
 }
 
 #board {
@@ -61,6 +64,21 @@ body {
 #score {
     font-size: 30ßpx;
 }
+
+@media only screen and (max-width: 600px) {
+    /* CSS styles for small screens */
+    .container {
+        width: 100%;
+    }
+    .sidebar {
+        display: none; /* Hide sidebar on small screens */
+    }
+    body {
+        font-size: 14px; /* Example of smaller font size for phones */
+    }
+}
+
+
 
 
   

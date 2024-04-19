@@ -11,7 +11,7 @@ function generateId() {
             return;
         }
         
-    //let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
+    let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
