@@ -4,11 +4,6 @@ let score = 0;
 let gameOver = false;
 let playerName = "";
 
-function generateId() {
-    let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
-    document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
-
-}
 
 function startGame() {
     // Logic to start the game (navigate to gameplay page)
@@ -29,7 +24,6 @@ function showRegistration() {
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("registrationPage").style.display = "block";
     document.getElementById("gameplayPage").style.display = "none";
-    generateId();
 }
 
 function showLanding() {
