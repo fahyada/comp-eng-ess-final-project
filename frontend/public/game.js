@@ -64,7 +64,7 @@ function showLeaderboard() {
         let row = `<tr>
                     <td>${rank}</td>
                     <td>${entry.id}</td>
-                    <td>test</td> <!-- replace ${entry.name} with "test" -->
+                    <td>${entry.name}</td>
                     <td>${entry.score}</td>
                   </tr>`;
         leaderboardBody.innerHTML += row;
