@@ -1,18 +1,27 @@
-import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api";
+import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api.js";
 let currFairyTile;
 let currBeeTile;
 let score = 0;
 let gameOver = false;
 let playerName = "";
 
-function generateId() {
+export async function generateId() {
     let newPlayerName = document.getElementById("newPlayerName").value.trim();
         if (newPlayerName === "") {
             alert("Please enter your name to generate an ID.");
             return;
         }
-        
-    let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
+    //connect back
+    const newUser = {
+        id: 0,
+        name: newPlayerName,
+        score: 0,
+    };
+    await createUser(newUser);
+    let playerId = await getNewUserId();
+    // end connect back
+
+    //let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
@@ -35,6 +44,7 @@ function startGame() {
 
 function showRegistration() {
     // Logic to show registration page
+    alert('Registration function called!');
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("registrationPage").style.display = "block";
     document.getElementById("gameplayPage").style.display = "none";

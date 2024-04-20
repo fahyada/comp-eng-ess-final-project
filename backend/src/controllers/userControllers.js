@@ -53,7 +53,7 @@ export const getTopRank = async (req, res) => {
 
 export const getUserRank = async (req, res) => {
     try {
-        const userId = req.parmas.id;
+        const userId = req.body.id;
         const rankedUser = await User.find().sort({ score: -1});
         const userIndex = rankedUser.findIndex(userId);
 
