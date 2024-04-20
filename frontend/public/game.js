@@ -16,7 +16,6 @@ function generateId() {
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
-    leaderboard.push({ id: playerId, name: newPlayerName, score: 0 });
 }
 
 function startGame() {
@@ -137,5 +136,6 @@ function selectTile() {
     else if (this == currBeeTile) {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
+        leaderboard.push({ id: playerId, name: newPlayerName, score: score });
     }
 }
