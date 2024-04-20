@@ -31,7 +31,7 @@
             <div id="generatedIdDisplay" style="font-size: 25px; color: white;"></div> <!-- Display the generated ID here -->
             <br>
             <button id="gameplayStart" style="display: none; margin: 0 auto;" onclick="startGame()" class="large-button">Start Game</button>
-            <button onclick="showLanding()" class="large-button" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);">Go Back</button>
+            <button onclick="showLanding()" class="large-button">Go Back</button>
         </div>
     </div>
 
@@ -41,6 +41,21 @@
         <h2 id="score" style="color: white;">0</h2>
         <!-- 3x3 -->
         <div id="board">
+        <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+    </div>
+    
+    <div id="Leaderboard" style="display:none;">
+        <h1 style="font-size: 40px; color:white">Leaderboard</h1>
+        <table id="leaderboardTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
     </div>
 </body>
 </html>
