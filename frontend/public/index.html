@@ -11,7 +11,7 @@
     <div id="landingPage">
         <h1 style="font-size: 80px; color:white">Catch the Fairy!</h1>
         <div id="enterId">
-            <label for="playerId" style="font-size: 30px; color:white">Enter Your ID:</label>
+            <label for="playerId" style="font-size: 35px; color:white;font-weight: bold;">Enter Your ID:</label>
             <input type="text" id="playerId" name="playerId" style="width: 200px; height: 30px; font-size: 25px;">
             <br>
             <button onclick="startGame()" class="large-button">Start Game</button>
@@ -22,13 +22,13 @@
     <div id="registrationPage" style="display: none;">
         <h1 style="font-size: 80px; color:white">Catch the Fairy!</h1>
         <div id="registerNewId">
-            <label for="newPlayerName" style="font-size: 30px; color:white">Enter Your Name:</label>
+            <label for="newPlayerName" style="font-size: 35px; color:white; font-weight: bold;">Enter Your Name:</label>
             <input type="text" id="newPlayerName" name="newPlayerName" style="width: 200px; height: 30px; font-size: 25px;">
             <br>
             <button onclick="generateId()" class="large-button">Generate ID</button>
             <br>
             <br>
-            <div id="generatedIdDisplay" style="font-size: 25px; color: white;"></div> <!-- Display the generated ID here -->
+            <div id="generatedIdDisplay" style="font-size: 30px; color: white;font-weight: bold;"></div> <!-- Display the generated ID here -->
             <br>
             <button id="gameplayStart" style="display: none; margin: 0 auto;" onclick="startGame()" class="large-button">Start Game</button>
             <button onclick="showLanding()" class="large-button">Go Back</button>
@@ -38,7 +38,7 @@
     <div id="gameplayPage" style="display:none;">
         <h1 style="font-size: 40px; color:white">Catch the Fairy!</h1>
         <h2 id="playerNameDisplay" style="color: white;"></h2>
-        <h2 id="score" style="color: white;">0</h2>
+        <h2 id="score" style="color: white; font-size: 30;">0</h2>
         <!-- 3x3 -->
         <div id="board">
         <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
@@ -48,11 +48,12 @@
         <h1 style="font-size: 40px; color:white">Leaderboard</h1>
         <table id="leaderboardTable">
             <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-              </tr>
+                <tr>
+                    <th style="font-size: 30px; color: white">Rank</th>
+                    <th style="font-size: 30px; color: white">Player ID</th>
+                    <th style="font-size: 30px; color: white">Name</th>
+                    <th style="font-size: 30px; color: white">Score</th>
+                </tr>
             </thead>
             <tbody></tbody>
           </table>

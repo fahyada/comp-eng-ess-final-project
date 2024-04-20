@@ -87,7 +87,28 @@ body {
         font-size: 14px; /* Example of smaller font size for phones */
     }
 }
+#leaderboardTable {
+    width: 100%;
+}
 
+#leaderboardTable th {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 10px; /* Add padding for spacing */
+}
+
+#leaderboardButton {
+    display: none;
+}
+
+/* Separate headers onto different lines for smaller screens */
+@media only screen and (max-width: 600px) {
+    #leaderboardTable th {
+        display: block;
+        width: 100%;
+    }
+}
 
 
 
