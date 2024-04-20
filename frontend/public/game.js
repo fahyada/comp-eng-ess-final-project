@@ -1,9 +1,9 @@
-import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api";
 let currFairyTile;
 let currBeeTile;
 let score = 0;
 let gameOver = false;
 let playerName = "";
+let leaderboard = [];
 
 function generateId() {
     let newPlayerName = document.getElementById("newPlayerName").value.trim();
@@ -16,7 +16,7 @@ function generateId() {
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
-
+    leaderboard.push({ id: playerId, name: newPlayerName, score: 0 });
 }
 
 function startGame() {
@@ -30,6 +30,7 @@ function startGame() {
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "block";
+    document.getElementById("Leaderboard").style.display = "none";
     setGame();
 }
 
@@ -54,30 +55,21 @@ function showLeaderboard() {
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "none";
     document.getElementById("Leaderboard").style.display = "block";
-    loadLeaderboard();
+    leaderboard.sort((a, b) => b.score - a.score);
+    let leaderboardBody = document.getElementById("leaderboardBody");
+    leaderboardBody.innerHTML = "";
+    for (let i = 0; i < Math.min(leaderboard.length, 10); i++) {
+        let rank = i + 1;
+        let entry = leaderboard[i];
+        let row = `<tr>
+                    <td>${rank}</td>
+                    <td>${entry.id}</td>
+                    <td>test</td> <!-- replace ${entry.name} with "test" -->
+                    <td>${entry.score}</td>
+                  </tr>`;
+        leaderboardBody.innerHTML += row;
+    }
 }
-function loadLeaderboard() {
-    // Fetch the leaderboard data from the server
-    fetch('/api/leaderboard')
-      .then(response => response.json())
-      .then(data => {
-        // Sort the data by score in descending order
-        data.sort((a, b) => b.score - a.score);
-  
-        // Display the data in the table
-        let tbody = document.getElementById('leaderboardTable').getElementsByTagName('tbody')[0];
-        tbody.innerHTML = '';
-        for (let i = 0; i < data.length; i++) {
-          let tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${i + 1}</td>
-            <td>${data[i].name}</td>
-            <td>${data[i].score}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-      });
-  }
 
 function setGame() {
     //set up the grid in html

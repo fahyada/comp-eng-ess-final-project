@@ -41,21 +41,24 @@
         <h2 id="score" style="color: white;">0</h2>
         <!-- 3x3 -->
         <div id="board">
-        <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+            <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+        </div>
     </div>
     
-    <div id="Leaderboard" style="display:none;">
-        <h1 style="font-size: 40px; color:white">Leaderboard</h1>
+    <div id="Leaderboard" style="display: none;">
+        <h1 style="font-size: 80px; color:white">Leaderboard</h1>
         <table id="leaderboardTable">
             <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-              </tr>
+                <tr>
+                    <th style="font-size: 30px; color: white">Rank</th>
+                    <th style="font-size: 30px; color: white">Player ID</th>
+                    <th style="font-size: 30px; color: white">Name</th>
+                    <th style="font-size: 30px; color: white">Score</th>
+                </tr>
             </thead>
-            <tbody></tbody>
-          </table>
+            <tbody id="leaderboardBody">
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
