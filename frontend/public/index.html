@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch the Fairy</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="game.js"></script>
+    <script src="game.js"></script>
 </head>
 <body>
     <div id="landingPage">
@@ -41,22 +41,24 @@
         <h2 id="score" style="color: white; font-size: 30;">0</h2>
         <!-- 3x3 -->
         <div id="board">
-        <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+            <button id="showLeaderboardButton" onclick="showLeaderboard()" class="bottom-button" style="display: none;">Show Leaderboard</button>
+        </div>
     </div>
     
-    <div id="Leaderboard" style="display:none;">
-        <h1 style="font-size: 40px; color:white">Leaderboard</h1>
+    <div id="Leaderboard" style="display: none;">
+        <h1 style="font-size: 60px; color:white">Leaderboard</h1>
         <table id="leaderboardTable">
             <thead>
                 <tr>
-                    <th style="font-size: 30px; color: white">Rank</th>
-                    <th style="font-size: 30px; color: white">Player ID</th>
-                    <th style="font-size: 30px; color: white">Name</th>
-                    <th style="font-size: 30px; color: white">Score</th>
+                    <th style=" color: white">Rank</th>
+                    <th style=" color: white">Player ID</th>
+                    <th style=" color: white">Name</th>
+                    <th style=" color: white">Score</th>
                 </tr>
             </thead>
-            <tbody></tbody>
-          </table>
+            <tbody id="leaderboardBody" style="color: white">
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

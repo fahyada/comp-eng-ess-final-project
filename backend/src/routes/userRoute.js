@@ -4,12 +4,11 @@ import * as userController from "../controllers/userControllers.js";
 
 const router = express.Router();
 
+router.get("/:id", userController.getUser);
 router.post("/", userController.createUser);
-router.get("/", userController.getNewUserId);
-router.get("/", userController.getUser);
-router.get("/", userController.getTopRank);
+router.get("/", userController.getRankUser);
 router.get("/", userController.getUserRank);
 router.get("/", userController.getUserBestScore);
-
+router.get("/", userController.getNewUserId);
 
 export default router;

@@ -74,6 +74,12 @@ body {
 #score {
     font-size: 30ßpx;
 }
+#Leaderboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 @media only screen and (max-width: 600px) {
     /* CSS styles for small screens */
@@ -92,10 +98,17 @@ body {
 }
 
 #leaderboardTable th {
-    font-size: 30px;
+    font-size: 40px;
     color: white;
     text-align: center;
     padding: 10px; /* Add padding for spacing */
+    font-weight: bolder;
+}
+#leaderboardTable td {
+    font-size: 30px; /* Change the font size as desired */
+    text-align: center;
+    padding: 10px;
+    font-weight: bold; /* Make the text bold */
 }
 
 #leaderboardButton {
