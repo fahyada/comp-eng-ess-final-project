@@ -13,16 +13,14 @@ export async function generateId() {
             return;
         }
     //connect back
-    const newUser = {
-        id: 0,
-        name: newPlayerName,
-        score: 0,
-    };
-    await createUser(newUser);
-    let playerId = await getNewUserId();
-    // end connect back
-
-    //let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
+    //const newUser = {
+        //id: 0,
+        //name: newPlayerName,
+        //score: 0,
+    //};
+    //await createUser(newUser);
+    //let playerId = await getNewUserId();    
+    let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
@@ -69,32 +67,24 @@ export async function showLeaderboard() {
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "none";
     document.getElementById("Leaderboard").style.display = "block";
-    loadLeaderboard();
+    leaderboard.sort((a, b) => b.score - a.score);
+    let leaderboardBody = document.getElementById("leaderboardBody");
+    leaderboardBody.innerHTML = "";
+    for (let i = 0; i < Math.min(leaderboard.length, 10); i++) {
+        let rank = i + 1;
+        let entry = leaderboard[i];
+        let row = `<tr>
+                    <td>${rank}</td>
+                    <td>${entry.id}</td>
+                    <td>${entry.name}</td>
+                    <td>${entry.score}</td>
+                  </tr>`;
+        leaderboardBody.innerHTML += row;
+    }
 }
-function loadLeaderboard() {
-    // Fetch the leaderboard data from the server
-    fetch('/api/leaderboard')
-      .then(response => response.json())
-      .then(data => {
-        // Sort the data by score in descending order
-        data.sort((a, b) => b.score - a.score);
-  
-        // Display the data in the table
-        let tbody = document.getElementById('leaderboardTable').getElementsByTagName('tbody')[0];
-        tbody.innerHTML = '';
-        for (let i = 0; i < data.length; i++) {
-          let tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${i + 1}</td>
-            <td>${data[i].name}</td>
-            <td>${data[i].score}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-      });
-  }
+document.getElementById("showLeaderboardButton").addEventListener("click", showLeaderboard);
 
-function setGame() {
+export async function setGame() {
     //set up the grid in html
     for (let i = 0; i < 9; i++) { //i goes from 0 to 8, stops at 9
         //<div id="0-8"></div>

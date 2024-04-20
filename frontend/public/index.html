@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch the Fairy</title>
     <link rel="stylesheet" href="style.css">
-    <script src="game.js"></script>
+    <script type="module" src="game.js"></script>
 </head>
 <body>
     <div id="landingPage">
@@ -41,7 +41,8 @@
         <h2 id="score" style="color: white; font-size: 30;">0</h2>
         <!-- 3x3 -->
         <div id="board">
-        <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+            <button id="showLeaderboardButton" class="bottom-button" style="display: none;">Show Leaderboard</button>
+        </div>
     </div>
     
     <div id="Leaderboard" style="display: none;">

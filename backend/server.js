@@ -1,5 +1,6 @@
 import express from "express";
-import cors from "cors"
+import cors from "cors";
+
 
 import UserRoute from "./src/routes/userRoute.js";
 
