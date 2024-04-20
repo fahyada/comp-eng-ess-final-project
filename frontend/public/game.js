@@ -1,4 +1,3 @@
-import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api";
 let currFairyTile;
 let currBeeTile;
 let score = 0;
@@ -54,30 +53,7 @@ function showLeaderboard() {
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "none";
     document.getElementById("Leaderboard").style.display = "block";
-    loadLeaderboard();
 }
-function loadLeaderboard() {
-    // Fetch the leaderboard data from the server
-    fetch('/api/leaderboard')
-      .then(response => response.json())
-      .then(data => {
-        // Sort the data by score in descending order
-        data.sort((a, b) => b.score - a.score);
-  
-        // Display the data in the table
-        let tbody = document.getElementById('leaderboardTable').getElementsByTagName('tbody')[0];
-        tbody.innerHTML = '';
-        for (let i = 0; i < data.length; i++) {
-          let tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td>${i + 1}</td>
-            <td>${data[i].name}</td>
-            <td>${data[i].score}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-      });
-  }
 
 function setGame() {
     //set up the grid in html
