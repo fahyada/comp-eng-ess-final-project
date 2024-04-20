@@ -5,6 +5,9 @@ let score = 0;
 let gameOver = false;
 let playerName = "";
 let leaderboard = [];
+let playerId;
+let newPlayerName;
+
 
 export async function generateId() {
     let newPlayerName = document.getElementById("newPlayerName").value.trim();
