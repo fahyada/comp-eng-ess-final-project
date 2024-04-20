@@ -136,6 +136,7 @@ function selectTile() {
     else if (this == currBeeTile) {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
+        document.getElementById("showLeaderboardButton").style.display = "block";
         leaderboard.push({ id: playerId, name: newPlayerName, score: score });
     }
 }

@@ -104,6 +104,10 @@ body {
     padding: 10px; /* Add padding for spacing */
 }
 
+#leaderboardButton {
+    display: none;
+}
+
 /* Separate headers onto different lines for smaller screens */
 @media only screen and (max-width: 600px) {
     #leaderboardTable th {
