@@ -15,7 +15,7 @@
             <input type="text" id="playerId" name="playerId" style="width: 200px; height: 30px; font-size: 25px;">
             <br>
             <button onclick="startGame()" class="large-button">Start Game</button>
-            <button onclick="showRegistration(); generateId();" class="large-button">Get ID</button>
+            <button onclick="showRegistration();" class="large-button">Get ID</button>
         </div>
     </div>
 
@@ -25,8 +25,12 @@
             <label for="newPlayerName" style="font-size: 30px; color:white">Enter Your Name:</label>
             <input type="text" id="newPlayerName" name="newPlayerName" style="width: 200px; height: 30px; font-size: 25px;">
             <br>
+            <button onclick="generateId()" class="large-button">Generate ID</button>
+            <br>
+            <br>
             <div id="generatedIdDisplay" style="font-size: 25px; color: white;"></div> <!-- Display the generated ID here -->
-            <button onclick="startGame()" class="large-button">Start Game</button>
+            <br>
+            <button id="gameplayStart" style="display: none; margin: 0 auto;" onclick="startGame()" class="large-button">Start Game</button>
             <button onclick="showLanding()" class="large-button">Go Back</button>
         </div>
     </div>
@@ -37,6 +41,21 @@
         <h2 id="score" style="color: white;">0</h2>
         <!-- 3x3 -->
         <div id="board">
+        <button onclick="showLeaderboard()" class="bottom-button">Show Leaderboard</button>
+    </div>
+    
+    <div id="Leaderboard" style="display:none;">
+        <h1 style="font-size: 40px; color:white">Leaderboard</h1>
+        <table id="leaderboardTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
     </div>
 </body>
 </html>

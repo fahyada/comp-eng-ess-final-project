@@ -25,6 +25,12 @@ export const createUser = async (req, res) => {
     }
 };
 
+export const getNewUserId = async (req, res) => {
+    // find from user ID for old user
+    const counter = await Counter.find();
+    res.status(200).json(counter);
+};
+
 export const getUser = async (req, res) => {
     // find from user ID for old user
     const userId = req.body;

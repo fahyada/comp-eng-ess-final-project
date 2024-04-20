@@ -9,5 +9,6 @@ router.post("/", userController.createUser);
 router.get("/", userController.getRankUser);
 router.get("/", userController.getUserRank);
 router.get("/", userController.getUserBestScore);
+router.get("/", userController.getNewUserId);
 
 export default router;
