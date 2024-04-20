@@ -1,3 +1,4 @@
+import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api.js";
 let currFairyTile;
 let currBeeTile;
 let score = 0;
@@ -5,7 +6,7 @@ let gameOver = false;
 let playerName = "";
 let leaderboard = [];
 
-function generateId() {
+export async function generateId() {
     let newPlayerName = document.getElementById("newPlayerName").value.trim();
         if (newPlayerName === "") {
             alert("Please enter your name to generate an ID.");
