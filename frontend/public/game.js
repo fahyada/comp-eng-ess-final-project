@@ -16,14 +16,19 @@ export async function generateId() {
             return;
         }
     //connect back
-    //const newUser = {
-        //id: 0,
-        //name: newPlayerName,
-        //score: 0,
-    //};
-    //await createUser(newUser);
-    //let playerId = await getNewUserId();    
-    let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
+    const newUser = {
+        id: 0,
+        name: newPlayerName,
+        score: 0,
+    };
+    await createUser(newUser);
+    const counters = await getNewUserId();
+    let playerId;  
+    for(const counter of counters){
+        playerId = counter.seq;
+    }
+    console.log(playerId);
+    //let playerId = Math.floor(Math.random() * 1000000); // Generate a random ID between 0 and 999999
     document.getElementById("playerId").value = playerId; // Set the generated ID to the playerId input field
     document.getElementById("generatedIdDisplay").innerText = "Your ID: " + playerId; // Display the generated ID to the user
     document.getElementById("gameplayStart").style.display = "block"; // Display the "Start Game" button
@@ -154,6 +159,7 @@ function selectTile() {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
         document.getElementById("showLeaderboardButton").style.display = "block";
+        
         leaderboard.push({ id: playerId, name: newPlayerName, score: score });
     }
 }

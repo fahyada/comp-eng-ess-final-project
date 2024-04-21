@@ -32,7 +32,7 @@ export async function getUserBestScore(){
 }
 
 export async function getNewUserId(){
-    const counter = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
-    return counter;
+    const counters = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
+    return counters;
 }
 
