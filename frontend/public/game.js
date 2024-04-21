@@ -75,7 +75,8 @@ export async function showLeaderboard() {
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "none";
     document.getElementById("Leaderboard").style.display = "block";
-    leaderboard.sort((a, b) => b.score - a.score);
+    leaderboard = await getTopRank();
+    //leaderboard.sort((a, b) => b.score - a.score);
     let leaderboardBody = document.getElementById("leaderboardBody");
     leaderboardBody.innerHTML = "";
     for (let i = 0; i < Math.min(leaderboard.length, 10); i++) {

@@ -17,8 +17,8 @@ export async function getUser(id){
 }
 
 export async function getTopRank(){
-    const topRank  = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
-    return topRank;
+    const topRanks  = await fetch(`${BACKEND_URL}/users/topRank`).then((r) => r.json());
+    return topRanks;
 }
 
 export async function getUserRank(){

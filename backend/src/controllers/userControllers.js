@@ -44,7 +44,7 @@ export const getUser = async (req, res) => {
 export const getTopRank = async (req, res) => {
     // rank user by score -> id
     try {
-        const rankedUser = await User.find().sort({ score: -1}).limit(5);
+        const rankedUser = await User.find().sort({ score: -1, id: 1}).limit(5);
         res.status(200).json(rankedUser);
     } catch (err) {
         res.status(500).send("Error to ranking");

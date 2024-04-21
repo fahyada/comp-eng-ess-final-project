@@ -7,9 +7,9 @@ const router = express.Router();
 router.post("/", userController.createUser);
 router.get("/", userController.getNewUserId);
 router.get("/", userController.getUser);
-router.get("/", userController.getTopRank);
-router.get("/", userController.getUserRank);
-router.get("/", userController.getUserBestScore);
+router.get("/topRank", userController.getTopRank);
+router.get("/userRank", userController.getUserRank);
+router.post("/bestScore", userController.getUserBestScore);
 
 
 export default router;
