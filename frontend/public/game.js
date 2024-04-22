@@ -70,6 +70,7 @@ export async function showLanding() {
     document.getElementById("Leaderboard").style.display = "none";
 }
 document.getElementById("showLanding").addEventListener("click", showLanding);
+document.getElementById("PlayAgain").addEventListener("click", showLanding);
 
 export async function showLeaderboard() {
     document.getElementById("landingPage").style.display = "none";
@@ -93,6 +94,9 @@ export async function showLeaderboard() {
     }
 }
 document.getElementById("showLeaderboardButton").addEventListener("click", showLeaderboard);
+document.getElementById("PlayAgain").addEventListener("click", function() {
+    location.reload();
+});
 
 export async function setGame() {
     //set up the grid in html
