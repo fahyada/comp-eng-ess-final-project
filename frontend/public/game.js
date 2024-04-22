@@ -1,4 +1,4 @@
-import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore  } from "./script/api.js";
+import { createUser, getUser, getNewUserId, getTopRank, getUserRank, getUserBestScore, getAllUser, updateScore  } from "./script/api.js";
 let currFairyTile;
 let currBeeTile;
 let score = 0;
@@ -70,6 +70,7 @@ export async function showLanding() {
     document.getElementById("Leaderboard").style.display = "none";
 }
 document.getElementById("showLanding").addEventListener("click", showLanding);
+
 export async function showLeaderboard() {
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("registrationPage").style.display = "none";
@@ -79,7 +80,7 @@ export async function showLeaderboard() {
     //leaderboard.sort((a, b) => b.score - a.score);
     let leaderboardBody = document.getElementById("leaderboardBody");
     leaderboardBody.innerHTML = "";
-    for (let i = 0; i < Math.min(leaderboard.length, 10); i++) {
+    for (let i = 0; i < Math.min(leaderboard.length, 5); i++) {
         let rank = i + 1;
         let entry = leaderboard[i];
         let row = `<tr>
@@ -148,7 +149,7 @@ function setBee() {
     currBeeTile.appendChild(bee);
 }
 
-function selectTile() {
+export async function selectTile() {
     if (gameOver) {
         return;
     }
@@ -160,7 +161,23 @@ function selectTile() {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
         document.getElementById("showLeaderboardButton").style.display = "block";
-        
-        leaderboard.push({ id: playerId, name: newPlayerName, score: score });
+        // const user = {
+        //     id: playerId,
+        //     name: newPlayerName,
+        //     score: score,
+        // };
+        // const bestScore = await getUserBestScore(user);
+        // console.log(bestScore);
+        //leaderboard.push({ id: playerId, name: newPlayerName, score: score });
+
+        const users = await getAllUser();
+        for(const user of users){
+            if(user.id == playerId){
+                if(user.score < score){
+                    updateScore(user.id, score);
+                }
+            }
+        }
+        getUserRank(playerId);
     }
 }

@@ -21,18 +21,59 @@ export async function getTopRank(){
     return topRanks;
 }
 
-export async function getUserRank(){
-    const userRank  = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
-    return userRank;
+export async function getUserRank(id){
+    await fetch(`${BACKEND_URL}/users/userRank/${id}`)
+        .then((r) => r.json())
+        .then((data) => {
+            const userRank = data.rank;
+            console.log(`อันดับของคุณคือ: ${userRank}`);
+        });
 }
 
-export async function getUserBestScore(){
-    const user = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
-    return user;
+export async function getUserBestScore(user){
+    try {
+        const response = await fetch(`${BACKEND_URL}/users/bestScore`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to update user score");
+        }
+
+        const data = await response.json();
+        return data.score;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+    // const user = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
+    // return user;
 }
 
 export async function getNewUserId(){
     const counters = await fetch(`${BACKEND_URL}/users`).then((r) => r.json());
     return counters;
 }
+
+export async function getAllUser(){
+    const users  = await fetch(`${BACKEND_URL}/users/allUser`).then((r) => r.json());
+    return users;
+}
+
+export async function updateScore(id, newScore){
+    await fetch(`${BACKEND_URL}/users/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          score: newScore,
+        }),
+    });
+}
+
 

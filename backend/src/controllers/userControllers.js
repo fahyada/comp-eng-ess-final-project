@@ -31,6 +31,27 @@ export const getNewUserId = async (req, res) => {
     res.status(200).json(counter);
 };
 
+export const getAllUser = async (req, res) => {
+    // find from user ID for old user
+    const users = await User.find();
+    res.status(200).json(users);
+};
+
+export const updateScore = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { score } = req.body;
+    
+        await User.findOneAndUpdate({ id: parseInt(id) }, { score });
+
+        res.status(200).json({ success: true, message: 'Score updated successfully'});
+      
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server Error' });
+    }
+};
+
 export const getUser = async (req, res) => {
     // find from user ID for old user
     const userId = req.body;
@@ -53,21 +74,26 @@ export const getTopRank = async (req, res) => {
 
 export const getUserRank = async (req, res) => {
     try {
-        const userId = req.body.id;
-        const rankedUser = await User.find().sort({ score: -1});
-        const userIndex = rankedUser.findIndex(userId);
-
-        if (userIndex === -1) {
-            res.status(404).send("User not found");
-            return;
-        }
-
-        const userRank = userIndex + 1;
-        res.status(200).json(userRank);
-    } catch (err) {
-        res.status(500).send("Error to find the rank");
-    }
+        const { id } = req.params;
+    
+        const user = await User.findOne({ id: id });
+        const userScore = user.score;
+    
+        const rank = await User.countDocuments({ 
+          $or: [
+            { score: { $gt: userScore } },
+            { score: userScore, id: { $lt: id } }
+          ]
+        }) + 1;
+    
+        res.status(200).json({ success: true, rank: rank, message: 'User rank retrieved successfully' });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server Error' });
+      }
 };
+
+//not use //
 
 export const getUserBestScore = async (req, res) => {
     try {
