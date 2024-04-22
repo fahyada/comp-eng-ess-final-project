@@ -57,7 +57,7 @@ body {
 .large-button {
     width: 200px;
     height: 60px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: papyrus;
 }
 .bottom-button {
@@ -67,7 +67,7 @@ body {
     transform: translateX(-50%);
     width: 350px;
     height: 60px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: papyrus;
 }
 
