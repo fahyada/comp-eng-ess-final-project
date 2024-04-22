@@ -40,7 +40,7 @@ export async function startGame() {
     playerId = document.getElementById("playerId").value.trim();
     newPlayerName = document.getElementById("newPlayerName").value.trim();
     if (playerId === "" && newPlayerName === "") {
-        alert("Please enter your name to start the game.");
+        alert("Please enter your ID to start the game.");
         return;
     }
     document.getElementById("landingPage").style.display = "none";
