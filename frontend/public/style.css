@@ -59,6 +59,8 @@ body {
     height: 60px;
     font-size: 25px;
     font-family: papyrus;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
 }
 .bottom-button {
     position: fixed;
@@ -69,8 +71,51 @@ body {
     height: 60px;
     font-size: 25px;
     font-family: papyrus;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+/* .large-button, .bottom-button {
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    font-family: papyrus;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    display: inline-block;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+} */
+
+.large-button span, .bottom-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
+.large-button span:after, .bottom-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%); /* Center the arrow vertically */
+    transition: 0.5s;
+}
+
+.large-button:hover span, .bottom-button:hover span {
+    padding-right: 25px;
+}
+
+.large-button:hover span:after, .bottom-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
 #score {
     font-size: 30ßpx;
 }
