@@ -54,12 +54,17 @@ export const updateScore = async (req, res) => {
 
 export const getUser = async (req, res) => {
     // find from user ID for old user
-    const userId = req.body;
-    const user = await User.findById(userId);
-    if(!user) {
-        return res.status(404).json({ error: "User not found" });
-    }
-    res.status(200).json(user);
+    try {
+        const { id } = req.params;
+        const user = await User.findOne({ id: parseInt(id)});
+        if(!user){
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        res.status(200).json({ success: true, user: user, message: 'User retrieved successfully' });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server Error' });
+      }
 };
 
 export const getTopRank = async (req, res) => {

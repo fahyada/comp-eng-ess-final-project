@@ -43,6 +43,19 @@ export async function startGame() {
         alert("Please enter your ID to start the game.");
         return;
     }
+
+    const userG = await getUser(playerId);
+    
+    if(!userG.success){
+        alert("ID NOT FOUND");
+        return;
+    }
+    const name = userG.user.name;
+    const id = userG.user.id;
+    console.log(`name is ${name}, id is ${id}`);
+    newPlayerName = userG.user.name;
+    
+
     document.getElementById("landingPage").style.display = "none";
     document.getElementById("registrationPage").style.display = "none";
     document.getElementById("gameplayPage").style.display = "block";
@@ -165,23 +178,14 @@ export async function selectTile() {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString(); //update score html
         gameOver = true;
         document.getElementById("showLeaderboardButton").style.display = "block";
-        // const user = {
-        //     id: playerId,
-        //     name: newPlayerName,
-        //     score: score,
-        // };
-        // const bestScore = await getUserBestScore(user);
-        // console.log(bestScore);
-        //leaderboard.push({ id: playerId, name: newPlayerName, score: score });
-
-        const users = await getAllUser();
-        for(const user of users){
-            if(user.id == playerId){
-                if(user.score < score){
-                    updateScore(user.id, score);
-                }
-            }
+        
+        const userG = await getUser(playerId);
+        const user = userG.user;
+        if(user.score < score){
+            updateScore(user.id, score);
         }
-        getUserRank(playerId);
+        //const bestScore = user.score;
+        //console.log(`best score is ${bestScore} , cur score is ${score}`);
+        await getUserRank(playerId);
     }
 }

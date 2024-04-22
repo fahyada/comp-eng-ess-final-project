@@ -12,7 +12,7 @@ export async function createUser(user){
 }
 
 export async function getUser(id){
-    const user = await fetch(`${BACKEND_URL}/users/${id}`).then((r) => r.json());
+    const user = await fetch(`${BACKEND_URL}/users/userId/${id}`).then((r) => r.json());
     return user;
 }
 
@@ -26,7 +26,7 @@ export async function getUserRank(id){
         .then((r) => r.json())
         .then((data) => {
             const userRank = data.rank;
-            console.log(`อันดับของคุณคือ: ${userRank}`);
+            //console.log(`อันดับของคุณคือ: ${userRank}`);
         });
 }
 
