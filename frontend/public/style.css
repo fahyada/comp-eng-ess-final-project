@@ -167,3 +167,26 @@ body {
         width: 100%;
     }
 }
+/* Media query for desktop screens (min-width: 768px) */
+@media only screen and (min-width: 768px) {
+    .large-button:hover span, .bottom-button:hover span {
+        padding-right: 25px;
+    }
+
+    .large-button:hover span:after, .bottom-button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+/* Media query for mobile screens (max-width: 767px) */
+@media only screen and (max-width: 767px) {
+    .large-button:hover span, .bottom-button:hover span {
+        padding-right: 0; /* Remove padding on hover for mobile */
+    }
+
+    .large-button:hover span:after, .bottom-button:hover span:after {
+        opacity: 0; /* Hide arrow on hover for mobile */
+        right: -20px; /* Move arrow back to initial position */
+    }
+}
