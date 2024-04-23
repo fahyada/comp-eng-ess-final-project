@@ -109,7 +109,7 @@ export async function showLeaderboard() {
     const userG = await getUser(playerId);
     const data = await getUserRank(playerId);
 
-    let row = `<tr>
+    let row = `<tr class="highlighted-row">
         <td>${data.rank}</td>
         <td>${userG.user.id} (You)</td>
         <td>${userG.user.name}</td>        

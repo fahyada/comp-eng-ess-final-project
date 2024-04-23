@@ -201,3 +201,13 @@ body {
         right: -20px; /* Move arrow back to initial position */
     }
 }
+.scrollable-content {
+    overflow: auto;
+    /* Add other styling properties as needed */
+    scrollbar-width: auto;
+}
+.highlighted-row {
+    background-color: #7475b0; /* Light red background */
+    color: #ffffff; /* Text color */
+    font-weight: bold; /* Bold font weight */
+}
