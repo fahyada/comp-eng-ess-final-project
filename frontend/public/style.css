@@ -171,13 +171,6 @@ body {
     display: none;
 }
 
-/* Separate headers onto different lines for smaller screens */
-@media only screen and (max-width: 600px) {
-    #leaderboardTable th {
-        display: block;
-        width: 100%;
-    }
-}
 /* Media query for desktop screens (min-width: 768px) */
 @media only screen and (min-width: 768px) {
     .large-button:hover span, .bottom-button:hover span {
