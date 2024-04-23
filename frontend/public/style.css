@@ -9,8 +9,8 @@ body {
 }
 
 #board {
-    width: 50vw;
-    height: 50vw;
+    width: 45vw;
+    height: 45vw;
     /* background-color: green; */
 
     margin: 0 auto;
@@ -31,8 +31,8 @@ body {
 
 #board div {
     /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
-    width: calc((33.333vw - 20px)/2);
-    height: calc((33.333vw - 20px)/2);
+    width: calc((33.333vw - 20px)/2.2);
+    height: calc((33.333vw - 20px)/2.2);
     background-image: url("./flower.PNG");
     background-size: cover;
 
