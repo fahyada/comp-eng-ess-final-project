@@ -208,6 +208,7 @@ body {
 }
 .highlighted-row {
     background-color: #7475b0; /* Light red background */
+    opacity: 0.8;
     color: #ffffff; /* Text color */
     font-weight: bold; /* Bold font weight */
 }
