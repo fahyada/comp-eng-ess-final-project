@@ -9,8 +9,8 @@ body {
 }
 
 #board {
-    width: 600px;
-    height: 600px;
+    width: 50vw;
+    height: 50vw;
     /* background-color: green; */
 
     margin: 0 auto;
@@ -21,16 +21,27 @@ body {
     background-size: cover;
     border: 3px solid white;
     border-radius: 25px;
+
+    /* Add the following styles to make the board responsive */
+    @media only screen and (max-width: 600px) {
+        width: 90vw;
+        height: 90vw;
+    }
 }
 
 #board div {
     /* board = 540 x 540, divide into 3x3 tiles --> 180 x 180 per div */
-    width: 200px; 
-    height: 200px;
+    width: calc((33.333vw - 20px)/2);
+    height: calc((33.333vw - 20px)/2);
     background-image: url("./flower.PNG");
     background-size: cover;
-}
 
+    /* Add the following styles to make the tiles responsive */
+    @media only screen and (max-width: 600px) {
+        width: calc(33.333vw - 20px);
+        height: calc(33.333vw - 20px);
+    }
+}
 #board div img {
     /* all img tags inside tiles */
     width: 100px;
