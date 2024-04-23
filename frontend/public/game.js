@@ -105,6 +105,17 @@ export async function showLeaderboard() {
                   </tr>`;
         leaderboardBody.innerHTML += row;
     }
+    //to show own rank
+    const userG = await getUser(playerId);
+    const data = await getUserRank(playerId);
+
+    let row = `<tr>
+        <td>${data.rank}</td>
+        <td>${userG.user.id} (You)</td>
+        <td>${userG.user.name}</td>        
+        <td>${userG.user.score}</td>
+            </tr>`;
+    leaderboardBody.innerHTML += row;
 }
 document.getElementById("showLeaderboardButton").addEventListener("click", showLeaderboard);
 document.getElementById("PlayAgain").addEventListener("click", function() {

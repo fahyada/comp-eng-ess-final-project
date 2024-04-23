@@ -22,12 +22,9 @@ export async function getTopRank(){
 }
 
 export async function getUserRank(id){
-    await fetch(`${BACKEND_URL}/users/userRank/${id}`)
-        .then((r) => r.json())
-        .then((data) => {
-            const userRank = data.rank;
-            //console.log(`อันดับของคุณคือ: ${userRank}`);
-        });
+    const data = await fetch(`${BACKEND_URL}/users/userRank/${id}`)
+        .then((r) => r.json());
+    return data;
 }
 
 export async function getUserBestScore(user){
