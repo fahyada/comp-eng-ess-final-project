@@ -99,7 +99,6 @@ export async function showLeaderboard() {
         let entry = leaderboard[i];
         let row = `<tr>
                     <td>${rank}</td>
-                    <td>${entry.id}</td>
                     <td>${entry.name}</td>
                     <td>${entry.score}</td>
                   </tr>`;
@@ -111,8 +110,7 @@ export async function showLeaderboard() {
 
     let row = `<tr class="highlighted-row">
         <td>${data.rank}</td>
-        <td>${userG.user.id} (You)</td>
-        <td>${userG.user.name}</td>        
+        <td>${userG.user.name} (You, ID:${userG.user.id})</td>        
         <td>${userG.user.score}</td>
             </tr>`;
     leaderboardBody.innerHTML += row;
